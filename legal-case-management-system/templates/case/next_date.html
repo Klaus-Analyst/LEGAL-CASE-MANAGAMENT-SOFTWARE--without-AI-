@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    {% load static %}
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Law Office</title>
+  <!-- plugins:css -->
+  
+<!-- Optional theme -->
+  <link rel="stylesheet" href="{% static 'vendors/iconfonts/font-awesome/css/all.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.base.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.addons.css' %}">
+  <!-- endinject -->
+  <!-- plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="http://www.urbanui.com/" />
+</head>
+<body>
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+
+   {% include "header.html" %}
+
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_settings-panel.html -->
+     
+      <!-- partial -->
+      <!-- partial:partials/_sidebar.html -->
+      {% include 'asidebar.html' %}
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="page-header">
+            <h3 class="page-title">
+              Add Next Date
+            </h3>
+          </div>
+          
+        <form  id="add_next_date" name="add_next_date" role="form" method="POST">
+           
+            <input type="hidden" id="case_id" name="case_id" value="">
+            <input type="hidden" id="business_on_date" name="business_on_date" value=""><div class="modal-body">
+                <div class="alert alert-danger" style="display:none"></div>
+               
+                <div class="row" id="hide_nb">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="contct-info">
+                            <div class="form-group">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row" style="margin-bottom:15px;">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="contct-info">
+                            <div class="form-group">
+                                <label  class="discount_text"> Case No.<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control case_next_date" id="next_date" name="next_date" >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="show_nextDate_div">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="contct-info">
+                            <div class="form-group">
+                                <label  class="discount_text"> Next Date <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control case_next_date" id="next_date" name="next_date" >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="hide_decisiondate" style="display: none;">
+                
+                </div>
+        
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal"><i
+                            class="ik ik-x"></i>Close</button>
+                <button type="submit" name="case_next_date_btn" class="btn btn-primary waves-effect waves-light">Save <i class="fa fa-spinner fa-spin hide" id="btn_loader"></i></button>
+        
+            </div>
+        </form>
+       
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        {% include 'footer.html' %}
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+
+  <!-- plugins:js -->
+  <script src="{% static 'vendors/js/vendor.bundle.base.js' %}"></script>
+  <script src="{% static 'vendors/js/vendor.bundle.addons.js' %}"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page-->
+  <!-- End plugin js for this page-->
+  <!-- inject:js -->
+  <script src="{% static 'js/off-canvas.js' %}"></script>
+  <script src="{% static 'js/hoverable-collapse.js' %}"></script>
+  <script src="{% static 'js/misc.js' %}"></script>
+  <script src="{% static 'js/settings.js' %}"></script>
+  <script src="{% static 'js/todolist.js' %}"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="{% static 'js/dashboard.js' %}"></script>
+  <!-- End custom js for this page-->
+
+ 
+</body>
+
+
+</html>

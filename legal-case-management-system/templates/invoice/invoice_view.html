@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    {% load static %}
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Law Office</title>
+  <!-- plugins:css -->
+  
+<!-- Optional theme -->
+  <link rel="stylesheet" href="{% static 'vendors/iconfonts/font-awesome/css/all.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.base.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.addons.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/invoice_css.css' %}">
+  
+  <!-- endinject -->
+  <!-- plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="http://www.urbanui.com/" />
+</head>
+<body>
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row default-layout-navbar navbar-success">
+      <div class="text-center bg-success navbar-brand-wrapper d-flex align-items-center justify-content-center">
+        <a class="navbar-brand brand-logo text-white " href="#"><strong>Law Office</strong></a>
+        <a class="navbar-brand brand-logo-mini" href="#"><strong></strong></a>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-stretch">
+        
+        <ul class="navbar-nav ml-5 ml-5">
+          <div class="pl-5 ml-5">
+          <h3 class="pl-5 ml-5 text-white">Legal Case Management System</h3>
+          </div>
+        </ul>
+        <ul class="navbar-nav navbar-nav-right">
+          <li class="nav-item d-none d-lg-flex">
+            
+          </li>
+          <li class="nav-item dropdown d-none d-lg-flex">
+             
+          </li>
+          
+         
+          <li class="nav-item nav-profile dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+              <img src="{% static 'images/faces/face11.jpg' %}" alt="profile"/>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+             
+              <a href ="{% url 'admin_login' %}" class="dropdown-item">
+                Login
+              </a>
+              
+              
+              <a  href ="{% url 'admin_logout' %}" class="dropdown-item">
+                
+                Logout
+              </a>
+            </div>
+          </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+          <span class="fas fa-bars"></span>
+        </button>
+      </div>
+  </nav>
+
+    <!-- partial -->
+    <div class="container page-body-wrapper pl-5 ml-5">
+      <!-- partial:partials/_settings-panel.html -->
+     
+      <!-- partial -->
+      <!-- partial:partials/_sidebar.html -->
+      
+      <!-- partial -->
+      <div class="main-panel pl-5 ml-5">
+        <div class="x_panel pl-5 ml-5">
+            
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card px-2">
+            <div class="card-body">
+                <div class="container-fluid">
+                  <h3 class="text-right my-5">Invoice&nbsp;&nbsp;#{{views.invioce_no}}</h3>
+                  <hr>
+                </div>
+                <div class="container-fluid d-flex justify-content-between">
+                  <div class="col-lg-3 pl-0">
+                    <p class="mt-5 mb-2"><b>Law Office</b></p>
+                    <p>104,<br>Minare SK,<br>Canada, K1A 0G9.</p>
+                  </div>
+                  <div class="col-lg-3 pr-0">
+                    <p class="mt-5 mb-2 text-right"><b>Invoice to</b></p>
+                    <p class="text-right">{{views.client_name}} <br> Address: dalazak road Peshawar</p>
+                  </div>
+                </div>
+                <div class="container-fluid d-flex justify-content-between">
+                  <div class="col-lg-3 pl-0">
+                    <p class="mb-0 mt-5">Invoice Date : {{views.invioce_date}}</p>
+                    <p>Due Date : 25/12/2023</p>
+                  </div>
+                </div>
+                <div class="container-fluid mt-5 d-flex justify-content-center w-100">
+                  <div class="table-responsive w-100">
+                      <table class="table">
+                        <thead>
+                            <tr>
+                                <td class="text-center"><strong>No</strong></td>
+                                <td class="text-left"><strong>Service</strong></td>
+                                <td class="text-left"><strong>Description</strong></td>
+                                <td class="text-center" width="10%">
+                                    <strong>Quantity</strong></td>
+                                <td class="text-center" width="10%">
+                                    <strong>amount</strong></td>
+                                <td class="text-center" width="10%">
+                                    <strong>Total Amount</strong></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-center">{{views.id}}</td>
+                                <td class="text-left">{{views.services_name}}</td>
+                                <td class="text-left">{{views.services_description}}</td>
+                                <td class="text-center">{{views.qty}}</td>
+                                <td class="text-center">{{views.amount}}</td>
+                                <td class="text-center">{{views.total_amount}}</td>
+                            </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                </div>
+                <div class="container-fluid mt-5 w-100">
+                  <p class="text-right mb-2">Sub - Total amount: $12,348</p>
+                  <p class="text-right">vat (10%) : $138</p>
+                  <h4 class="text-right mb-5">Total : {{views.total_amount}}</h4>
+                  <hr>
+                </div>
+                <div class="container-fluid w-100">
+                  <a href="#" class="btn btn-primary float-right mt-4 ml-2"><i class="fa fa-print mr-1"></i>Print</a>
+                  <a href="#" class="btn btn-success float-right mt-4" onclick="window.print()"><i class="fa fa-share mr-1"></i>Download Invoice</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        {% include 'footer.html' %}
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+
+  <!-- plugins:js -->
+  <script src="{% static 'vendors/js/vendor.bundle.base.js' %}"></script>
+  <script src="{% static 'vendors/js/vendor.bundle.addons.js' %}"></script>
+  
+<script src="{% static 'assets/js/settings/cast-type-validation.js' %}"></script>
+
+
+  <!-- endinject -->
+  <!-- Plugin js for this page-->
+  <!-- End plugin js for this page-->
+  <!-- inject:js -->
+  <script src="{% static 'js/off-canvas.js' %}"></script>
+  <script src="{% static 'js/hoverable-collapse.js' %}"></script>
+  <script src="{% static 'js/misc.js' %}"></script>
+  <script src="{% static 'js/settings.js' %}"></script>
+  <script src="{% static 'js/todolist.js' %}"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="{% static 'js/dashboard.js' %}"></script>
+  <!-- End custom js for this page-->
+
+ 
+</body>
+
+
+</html>
+

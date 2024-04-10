@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Law Office</title>
+  <!-- plugins:css -->
+  
+<!-- Optional theme -->
+  <link rel="stylesheet" href="{% static 'vendors/iconfonts/font-awesome/css/all.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.base.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.addons.css' %}">
+  <link href="{% static 'assets/admin/Image-preview/dist/css/bootstrap-imageupload.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/admin/jcropper/css/cropper.min.css' %}" rel="stylesheet">
+  <!-- endinject -->
+  <!-- plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="http://www.urbanui.com/" />
+</head>
+<body>
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+
+   {% include "header.html" %}
+
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_settings-panel.html -->
+     
+      <!-- partial -->
+      <!-- partial:partials/_sidebar.html -->
+      {% include 'asidebar.html' %}
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="page-header">
+            <h3 class="page-title">
+              Edit Adovecate
+            </h3>
+          </div>
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+          
+                <div class="x_panel">
+                    <div class="x_content">
+                        <form id="add_user" name="add_user" role="form" method="POST"action="" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <input type="hidden" id="id" value={{members.id}} name="id">
+                                                   
+                            <div class="row">
+                               
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="row form-group">
+                                        <div class="col-md-6">
+                                            
+                                            <label for="f_name">First Name<span class="text-danger">*</span></label>
+                                            <input type="text" id="fname" value={{members.fname}} name="f_name" placeholder=""
+                                                   class="form-control" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="last_name">Last Name <span class="text-danger">*</span></label>
+                                            <input type="text" id="l_name" name="l_name" value={{members.lname}} class="form-control" required>
+                                        </div>
+                                        
+                                    </div>
+    
+                                    <div class="row form-group">
+                                        <div class="col-md-6">
+                                            <label for="email">Email <span class="text-danger">*</span></label>
+                                            <input type="text" id="email" value={{members.email}} name="email" class="form-control" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="mobile">Mobile No <span class="text-danger">*</span></label>
+                                            <input type="text" id="mobile" value={{members.contact}} name="contact" class="form-control"
+                                                   maxlength="11" required>
+                                        </div>
+                                    </div>
+    
+                                    <div class="row form-group">
+                                        <div class="col-md-9">
+                                            <label for="address">Address <span class="text-danger">*</span></label>
+                                            <input type="text" id="address" value={{members.address}} name="address" class="form-control" required>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="zipcode">Zip Code <span class="text-danger">*</span></label>
+                                            <input type="text" id="zip_code" value={{members.zip_code}} name="zip_code" class="form-control"
+                                                   maxlength="7" required>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-md-6">
+                                            <label for="password">Password <span class="text-danger">*</span></label>
+                                            <input type="text" id="password" value={{members.password}} name="password" class="form-control"
+                                                   autocomplete="off" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="password">Role<span class="text-danger">*</span></label>
+                                            <input type="text" id="role" value={{members.role}} name="role" class="form-control"
+                                                   autocomplete="off">
+                                        </div>
+                                    </div>
+    
+                                    <div class="row form-group">
+                                        <div class="col-md-6">
+                                            <label for="password">Country<span class="text-danger">*</span></label>
+                                            <input type="text" id="country" value={{members.country}} name="country" class="form-control"
+                                                   autocomplete="off">
+                                        </div>
+                                        
+                                        <div class="col-md-6">
+                                            <label for="city">City<span class="text-danger">*</span></label>
+                                            <input type="text" id="city" value={{members.city}} name="city" class="form-control"
+                                                   autocomplete="off" >
+                                        </div>
+                                        
+                                    </div>
+    
+                                </div>
+    
+                                <div class="form-group pull-right">
+                                    <div class="col-md-12 col-sm-6 col-xs-12">
+                                        <br>
+                                        <a class="btn btn-danger" href="{% url 'team_member_list' %}">Cancel</a>
+    
+                                        <button type="submit" class="btn btn-success" id="upload-result"><i
+                                                    class="fa fa-save" id="show_loader"></i>&nbsp;Save
+                                        </button>
+                                    </div>
+                                </div>
+    
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        {% include 'footer.html' %}
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+
+  <!-- plugins:js -->
+  <script src="{% static 'vendors/js/vendor.bundle.base.js' %}"></script>
+  <script src="{% static 'vendors/js/vendor.bundle.addons.js' %}"></script>
+  
+<script src="{% static 'assets/js/settings/cast-type-validation.js' %}"></script>
+
+
+  <!-- endinject -->
+  <!-- Plugin js for this page-->
+  <!-- End plugin js for this page-->
+  <!-- inject:js -->
+  <script src="{% static 'js/off-canvas.js' %}"></script>
+  <script src="{% static 'js/hoverable-collapse.js' %}"></script>
+  <script src="{% static 'js/misc.js' %}"></script>
+  <script src="{% static 'js/settings.js' %}"></script>
+  <script src="{% static 'js/todolist.js' %}"></script>
+  <script src="{% static 'assets/admin/js/selectjs.js' %}"></script>
+    <script src="{% static 'assets/admin/jcropper/js/cropper.min.js' %}"></script>
+    <script src="{% static 'assets/js/team_member/member-validation.js' %}"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="{% static 'js/dashboard.js' %}"></script>
+  <!-- End custom js for this page-->
+
+ 
+</body>
+
+
+</html>

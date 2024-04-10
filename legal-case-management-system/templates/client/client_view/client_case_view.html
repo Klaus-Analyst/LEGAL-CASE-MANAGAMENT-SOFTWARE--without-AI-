@@ -1,0 +1,314 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Law Office</title>
+  <!-- plugins:css -->
+  
+<!-- Optional theme -->
+  <link rel="stylesheet" href="{% static 'vendors/iconfonts/font-awesome/css/all.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.base.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.addons.css' %}">
+  <!-- endinject -->
+  <!-- plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="http://www.urbanui.com/" />
+</head>
+<body>
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+
+   {% include "header.html" %}
+
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_settings-panel.html -->
+     
+      <!-- partial -->
+      <!-- partial:partials/_sidebar.html -->
+      {% include 'asidebar.html' %}
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="page-header">
+            <h3 class="page-title">
+              Client profile : Name
+            </h3>
+          </div>
+          <div class="">
+            <div class="clearfix"></div>
+    
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+    
+                        <div class="x_content">
+
+                            <div class="row">
+                                
+                                <div class="col-md-2 col-sm-12 col-xs-12 form-group">
+                                    <br>
+                                    <a href="#">
+                                    <button type="submit" class="btn btn-success case-margin-top-3 " ><i
+                                            class="fa fa-search"></i>&nbsp;Case View
+                                    </button>
+                                </a>
+                                </div>
+                                <div class="col-md-2 col-sm-12 col-xs-12 form-group">
+                                    <br>
+                                <a href="{% url 'client_cases' %}">
+                                    <button type="submit" class="btn btn-outline-success  case-margin-top-3" ><i
+                                            class="fa fa-search"></i>&nbsp;Client Cases
+                                    </button>
+                                </a>
+                                </div>
+                                <div class="col-md-2 col-sm-12 col-xs-12 form-group">
+                                    <br>
+
+                                <a href="{% url 'client_account' %}">
+                                    <button type="submit" class="btn btn-outline-success case-margin-top-3" ><i
+                                            class="fa fa-search"></i>&nbsp;Client Acount
+                                    </button>
+                                </a>
+                                </div>
+                            </div>
+    
+                            <form id="add_client" name="add_client" role="form" method="POST" autocomplete="nope"
+                          action="">
+                        {% csrf_token %}
+                        <div class="x_content">
+                            <div class="row">
+                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">Client Name <span class="text-danger">*</span></label>
+                                    <select class="form-control select-change country-select2"
+                                            name="country" id="country"
+                                            data-url=""
+                                            data-clear="#city_id,#state"
+                                    >
+                                        <option value=""> Select Client</option>
+        
+                                    </select>
+                                </div>
+        
+                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">Adovcate <span class="text-danger">*</span></label>
+                                    <select id="state" name="state"
+        
+                                            data-url=""
+                                            data-target="#country"
+                                            data-clear="#city_id"
+                                            class="form-control state-select2 select-change">
+                                        <option value=""> Select Adovcate</option>
+        
+                                    </select>
+                                </div>
+        
+                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">Case Type <span class="text-danger">*</span></label>
+                                    <select id="city_id" name="city_id"
+                                            data-url=""
+                                            data-target="#state"
+        
+                                            class="form-control city-select2">
+                                        <option value=""> Select Case Type</option>
+        
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">Case No <span class="text-danger">*</span></label>
+                                    <input type="text" placeholder="" class="form-control" id="email" name="case-number">
+                                </div>
+        
+                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">respondent Name <span class="text-danger">*</span></label>
+                                    <input type="text" placeholder="" class="form-control" id="" name="respondent-name">
+                                </div>
+        
+                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">Case Status <span class="text-danger">*</span></label>
+                                    <select id="state" name="state"
+        
+                                            data-url=""
+                                            data-target="#country"
+                                            data-clear="#city_id"
+                                            class="form-control state-select2 select-change">
+                                        <option value=""> Select Case Status</option>
+        
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">Act <span class="text-danger">*</span></label>
+                                    <input type="text" placeholder="" class="form-control" id="" name="act">
+                                </div>
+        
+                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">Filing Number <span class="text-danger">*</span></label>
+                                    <input type="text" placeholder="" class="form-control" id="" name="filing-number">
+                                </div>
+                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">Filing Date <span class="text-danger">*</span></label>
+                                    <input type="text" placeholder="" class="form-control" id="" name="filng-date">
+                                </div>
+        
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">Registration No<span class="text-danger">*</span></label>
+                                    <input type="text" placeholder="" class="form-control" id="" name="registration-no">
+                                </div>
+        
+                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">Registration Date <span class="text-danger">*</span></label>
+                                    <input type="text" placeholder="" class="form-control" id="" name="egistration-date">
+                                </div>
+                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">First Heairing Date <span class="text-danger">*</span></label>
+                                    <input type="text" placeholder="" class="form-control" id="" name="first-hearing-date">
+                                </div>
+        
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">CNR Number <span class="text-danger">*</span></label>
+                                    <input type="text" placeholder="" class="form-control" id=""
+                                           name="cnr-no">
+                                </div>
+                                <div class="col-md-9 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">Description <span class="text-danger">*</span></label>
+                                    <input type="text" placeholder="" class="form-control" id="" name="description">
+                                </div>
+                            </div>
+                            <div class="page-header">
+                                <h3 class="page-title">
+                                  FIR DETAIL
+                                </h3>
+                            </div>
+        
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">Police Station <span class="text-danger">*</span></label>
+                                    <input type="text" placeholder="" class="form-control" id=""
+                                           name="police-station">
+                                </div>
+                               
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">FIR Number <span class="text-danger">*</span></label>
+                                    <input type="text" placeholder="" class="form-control" id=""
+                                           name="police-station">
+                                </div>
+                                <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">FIR Date <span class="text-danger">*</span></label>
+                                    <input type="text" placeholder="" class="form-control" id="alternate_no"name="alternate_no">
+                                </div>
+                            </div>
+
+                            <div class="page-header">
+                                <h3 class="page-title">
+                                  COURT DETAIL
+                                </h3>
+                            </div>
+        
+                            <div class="row">
+                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">Court No<span class="text-danger">*</span></label>
+                                    <input type="text" placeholder="" class="form-control" id="alternate_no"name="alternate_no">
+                                </div>
+
+        
+                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">Court Name <span class="text-danger">*</span></label>
+                                    <select id="state" name="court-name"class="form-control">
+                                        <option value=""> Select Court</option>
+                                    </select>
+                                </div>
+        
+                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">Court Type <span class="text-danger">*</span></label>
+                                    <select id="city_id" name="court-type"class="form-control">
+                                        <option value=""> Select Court Type</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">Judge Name</label>
+                                    <input type="text" placeholder="" class="form-control" id=""name="judge-name">
+                                </div>
+
+                                <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">Judge Type <span class="text-danger">*</span></label>
+                                    <select id="city_id" name="judge-type"class="form-control">
+                                        <option value=""> Select Judge Type</option>
+                                    </select>
+                                </div>
+        
+                            </div>
+                            <div id="change_court_div" class="hidden">
+                            </div>
+                           
+                        </div>
+                    </form>
+      
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+       
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        {% include 'footer.html' %}
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+
+  <!-- plugins:js -->
+  <script src="{% static 'vendors/js/vendor.bundle.base.js' %}"></script>
+  <script src="{% static 'vendors/js/vendor.bundle.addons.js' %}"></script>
+  
+<script src="{% static 'assets/js/settings/cast-type-validation.js' %}"></script>
+
+
+  <!-- endinject -->
+  <!-- Plugin js for this page-->
+  <!-- End plugin js for this page-->
+  <!-- inject:js -->
+  <script src="{% static 'js/off-canvas.js' %}"></script>
+  <script src="{% static 'js/hoverable-collapse.js' %}"></script>
+  <script src="{% static 'js/misc.js' %}"></script>
+  <script src="{% static 'js/settings.js' %}"></script>
+  <script src="{% static 'js/todolist.js' %}"></script>
+  
+
+  <script src="{% static 'assets/js/settings/case-type-datatable.js' %}"></script>
+
+
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="{% static 'js/dashboard.js' %}"></script>
+  <!-- End custom js for this page-->
+
+ 
+</body>
+</html>

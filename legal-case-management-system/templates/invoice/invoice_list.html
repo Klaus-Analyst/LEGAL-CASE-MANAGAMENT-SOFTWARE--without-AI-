@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Law Office</title>
+  <!-- plugins:css -->  
+<!-- Optional theme -->
+  <link rel="stylesheet" href="{% static 'vendors/iconfonts/font-awesome/css/all.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.base.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.addons.css' %}">
+  <!-- endinject -->
+  <!-- plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="http://www.urbanui.com/" />
+</head>
+<body>
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+
+   {% include "header.html" %}
+
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_settings-panel.html -->
+     
+      <!-- partial -->
+      <!-- partial:partials/_sidebar.html -->
+      {% include 'asidebar.html' %}
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="page-title">
+                <div class="title_left">
+                    <h3>Invoices List</h3>
+                </div>
+                <div class="title_right">
+                    <div class="form-group pull-right top_search">
+                            <a href="{% url 'add_invoice' %}" class="btn btn-success">Add invoces</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_content">
+                           
+                            <div class="row">
+
+
+                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">Enter Invoice No<span class="text-danger"></span></label>
+                                    <input type="text" placeholder="" class="form-control filter1">
+                                </div>
+                                
+                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                    <br>
+                                    <button type="submit" class="btn btn-success case-margin-top-3" ><i
+                                            class="fa fa-search"></i>&nbsp;Search
+                                    </button>
+                                </div>
+                                
+                                <div class="col-md-2 col-sm-12 col-xs-12 form-group ">
+                                    <br>
+                                    <a href="{% url 'invoice_payment_history' %}">
+                                    <button type="submit" class="btn btn-outline-success case-margin-top-3 " >
+                                           Payment History
+                                    </button>
+                                    </a>
+                                 </div>
+                            </div>
+    
+                            <table id="client_list" class="table" >
+                                <thead>
+                                <tr>
+                                    <th width="3%;">No</th>
+                                    <th width="15%">Invoice No</th>
+                                    <th width="15%">Client Name</th>
+                                    <th width="10%">Services</th>
+                                    <th width="10%">Total</th>
+                                    <th width="10%">Paid</th>
+                                    <th width="10%">Due</th>
+                                    <th width="5%;">Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    {% for invoice in invoices %}
+                                    <tr>
+                                        <td>{{invoice.id}}</td>
+                                        <td>{{invoice.invioce_no}}</td>
+                                        <td>{{invoice.client_name}}</td>
+                                        <td>{{invoice.services_name}}</td>
+                                        <td>{{invoice.total_amount}}</td>
+                                        <td>{{invoice.pay}}</td>
+                                        <td>{{invoice.due}}</td>
+                                        
+                                        <td>
+                                            <ul class="nav navbar-right panel_toolbox">
+                                                <li class="dropdown">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                                       aria-expanded="true"><i class="fa fa-ellipsis-h"
+                                                                              ></i></a>
+                                                    <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="{% url 'add_payment' invoice.id %}"><i class="fa fa-eye"></i>&nbsp;&nbsp;Add Payment</a>
+                                                        </li>
+                                                        <li><a href="{% url 'invoice_view' invoice.id %}"><i class="fa fa-eye"></i>&nbsp;&nbsp;Print</a>
+                                                        </li>
+                                                        <li><a href="{% url 'edit_invoice' %}"><i class="fa fa-edit"></i>&nbsp;&nbsp;Edit</a>
+                                                        </li>
+                                                        <li><a href="{% url 'delete_invoice' invoice.id  %}"><i class="fa fa-trash"></i>&nbsp;&nbsp;Delete</a>
+                                                        </li>
+                                
+                                                    </ul>
+                                                </li>
+        
+                                            </ul>
+                                        </td>
+                                        
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+        
+                            </table>
+        
+                        </div>
+                    </div>
+                </div>
+        
+            </div>
+            <div id="load-modal"></div>
+        
+            <!-- /page content end  -->
+            <div class="modal fade" id="modal-common" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content" id="show_modal">
+        
+                    </div>
+                </div>
+            </div>
+       
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        {% include 'footer.html' %}
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+
+  <!-- plugins:js -->
+  <script src="{% static 'vendors/js/vendor.bundle.base.js' %}"></script>
+  <script src="{% static 'vendors/js/vendor.bundle.addons.js' %}"></script>
+  <script src="{% static 'assets/js/invoice/invoice-datatable.js' %}"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page-->
+  <!-- End plugin js for this page-->
+  <!-- inject:js -->
+  <script src="{% static 'js/off-canvas.js' %}"></script>
+  <script src="{% static 'js/hoverable-collapse.js' %}"></script>
+  <script src="{% static 'js/misc.js' %}"></script>
+  <script src="{% static 'js/settings.js' %}"></script>
+  <script src="{% static 'js/todolist.js' %}"></script>
+  
+
+  <script src="{% static 'assets/js/settings/case-type-datatable.js' %}"></script>
+
+
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="{% static 'js/dashboard.js' %}"></script>
+  <!-- End custom js for this page-->
+
+ 
+</body>
+</html>
+

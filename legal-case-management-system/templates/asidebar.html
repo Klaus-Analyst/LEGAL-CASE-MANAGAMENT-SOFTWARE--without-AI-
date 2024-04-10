@@ -1,0 +1,111 @@
+
+{% load static %}
+
+
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <ul class="nav">
+      <li class="nav-item nav-profile">
+        <div class="nav-link">
+          <div class="profile-image">
+            <img src="{% static 'images/faces/face11.jpg' %}" alt="image"/>
+          </div>
+          <div class="profile-name">
+            <p class="name">
+              Welcome {{ request.user.username }}
+            </p>
+            <p class="designation">
+              Super Admin
+            </p>
+          </div>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'index' %}">
+          <i class="fa fa-home menu-icon"></i>
+          <span class="menu-title ">Dashbord</span>
+        </a>
+      </li>
+      
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'client_list' %}">
+          <i class="icon-sm fa fa-user menu-icon "></i>
+          <span class="menu-title">Clients</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'case_list' %}">
+          <i class="icon-sm fa fa-clipboard  menu-icon"></i>
+          <span class="menu-title">Cases</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'invoice_list' %}">
+          <i class="fas fa-file-invoice menu-icon"></i>
+          <span class="menu-title">Invoices</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'court_list' %}">
+          <i class="fas fa-shield-alt menu-icon"></i>
+          <span class="menu-title">Courts</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'court_type_list' %}">
+          
+          <i class="fas fa-shield-alt menu-icon"></i>
+          <span class="menu-title">Court Types</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'judge_list' %}">
+          <i class="fas fa-award menu-icon"></i>
+          <span class="menu-title">Judges</span>
+        </a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'case_type_list' %}">
+          <i class="icon-sm fa fa-clipboard  menu-icon"></i>
+          <span class="menu-title">Case Types</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'case_status_list' %}">
+          <i class="icon-sm fa fa-clipboard  menu-icon"></i>
+          <span class="menu-title">Case Status</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'appointment_list' %}">
+          <i class="fa fa-handshake menu-icon"></i>
+          <span class="menu-title">Appoinments</span>
+        </a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'team_member_list' %}">
+          <i class="icon-sm fa fa-users  menu-icon"></i>
+          <span class="menu-title">Adovecates</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'services_list' %}">
+          
+          <i class="fas fa-truck-moving menu-icon"></i>
+          <span class="menu-title">Services</span>
+        </a>
+      </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'tax_list' %}">
+              <i class="fas fa-clipboard menu-icon"></i>
+              <span class="menu-title">Taxes</span>
+            </a>
+          </li>
+    </ul>
+   
+  </nav>

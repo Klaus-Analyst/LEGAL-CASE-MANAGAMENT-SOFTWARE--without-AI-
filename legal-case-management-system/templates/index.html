@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    {% load static %}
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Law Office</title>
+  <!-- plugins:css -->
+  
+<!-- Optional theme -->
+  <link rel="stylesheet" href="{% static 'vendors/iconfonts/font-awesome/css/all.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.base.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.addons.css' %}">
+  <!-- endinject -->
+  <!-- plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="http://www.urbanui.com/" />
+</head>
+<body>
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+  
+
+   {% include "header.html" %}
+
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_settings-panel.html -->
+     
+      <!-- partial -->
+      <!-- partial:partials/_sidebar.html -->
+      {% include 'asidebar.html' %}
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="page-header">
+            <h3 class="page-title">
+              Dashboard
+            </h3>
+          </div>
+          <div class="row grid-margin">
+            <div class="col-12">
+              <div class="card card-statistics">
+                <div class="card-body bg-success">
+                  <div class="d-flex flex-column flex-md-row align-items-center justify-content-between">
+                      <div class="statistics-item">
+                        <p>
+                          <i class="icon-sm fa fa-user mr-2"></i>
+                          Clients
+                        </p>
+                       
+                        <h2>{{clients}}</h2>
+                       
+                      </div>
+                      <div class="statistics-item">
+                        <p>
+                          
+                          <i class="icon-sm fa fa-clipboard mr-2"></i>
+                          Cases
+                        </p>
+                        <h2>{{case_counter}}</h2>
+                        
+                      </div>
+                      <div class="statistics-item">
+                        <p>
+                          <i class="icon-sm fa fa-users mr-2"></i>
+                          
+                          Team Members
+                        </p>
+                        <h2>{{team_counter}}</h2>
+                 
+                      </div>
+                      <div class="statistics-item">
+                        <p>
+                         
+                          <i class="icon-sm fas fa-lock mr-2"></i>
+                        
+                          Close Cases
+                        </p>
+                        <h2>{{close_counter}}</h2>
+                      </div>
+                      <div class="statistics-item">
+                        <p>
+                          <i class="icon-sm fas fa-lock-open mr-2"></i>
+                          Open Cases
+                        </p>
+                        <h2>{{open_counter}}</h2>
+                      </div>
+                      <div class="statistics-item">
+                        <p>
+                          <i class="icon-sm fas fa-wheelchair mr-2"></i>
+                      
+                          Pending Cases
+                        </p>
+                        <h2>{{pending_counter}}</h2>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+         
+        
+          <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <i class="fas fa-table"></i>
+                    Today Cases
+                  </h4>
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>Case No.</th>
+                          <th>Case Detail</th>
+                          <th>Petitioner vs Respondent</th>
+                          <th>Next Date</th>
+                          <th>Status</th>
+                          
+                        </tr>
+                      </thead>
+                      <tbody>
+
+                        <tr>
+                          
+
+                          {% for case in pendings %}
+                                    <tr>
+                                        <td class="font-weight-bold">{{case.case_no}}</td>
+                                        <td>{{case.client_name}}<br>Case No: {{case.case_no}} {{case.description}}</td>
+                                        
+                                        <td>{{case.client_name}} VS {{case.respondent_name}}</td>
+                                        <td>{{case.next_date}}</td>
+                                        <td><label class="badge badge-warning badge-pill">{{case.case_status_name}}</label></td>
+                                        
+                                    </tr>
+                                  {% endfor %}
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+         
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-md-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center mb-3 mb-md-0">
+                      <button class="btn btn-social-icon btn-facebook btn-rounded">
+                        <i class="fab fa-facebook-f"></i>
+                      </button>
+                      <div class="ml-4">
+                        <h5 class="mb-0">Facebook</h5>
+                        <p class="mb-0"></p>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center mb-3 mb-md-0">
+                      <button class="btn btn-social-icon btn-twitter btn-rounded">
+                        <i class="fab fa-twitter"></i>
+                      </button>
+                      <div class="ml-4">
+                        <h5 class="mb-0">Twitter</h5>
+                        <p class="mb-0"></p>
+                      </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-center">
+                      <button class="btn btn-social-icon btn-linkedin btn-rounded">
+                        <i class="fab fa-linkedin-in"></i>
+                      </button>
+                      <div class="ml-4">
+                        <h5 class="mb-0">Linkedin</h5>
+                        <p class="mb-0"></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        {% include 'footer.html' %}
+
+       
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+
+  <!-- plugins:js -->
+  <script src="{% static 'vendors/js/vendor.bundle.base.js' %}"></script>
+  <script src="{% static 'vendors/js/vendor.bundle.addons.js' %}"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page-->
+  <!-- End plugin js for this page-->
+  <!-- inject:js -->
+  <script src="{% static 'js/off-canvas.js' %}"></script>
+  <script src="{% static 'js/hoverable-collapse.js' %}"></script>
+  <script src="{% static 'js/misc.js' %}"></script>
+  <script src="{% static 'js/settings.js' %}"></script>
+  <script src="{% static 'js/todolist.js' %}"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="{% static 'js/dashboard.js' %}"></script>
+  <!-- End custom js for this page-->
+
+ 
+</body>
+
+
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    {% load static %}
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Law Office</title>
+  <!-- plugins:css -->
+  
+<!-- Optional theme -->
+  <link rel="stylesheet" href="{% static 'vendors/iconfonts/font-awesome/css/all.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.base.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.addons.css' %}">
+  <!-- endinject -->
+  <!-- plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="http://www.urbanui.com/" />
+</head>
+<body>
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+
+   {% include "header.html" %}
+
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_settings-panel.html -->
+     
+      <!-- partial -->
+      <!-- partial:partials/_sidebar.html -->
+      {% include 'asidebar.html' %}
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="page-header">
+            <h3 class="page-title">
+              Update Appoinment
+            </h3>
+          </div>
+          
+        <form  id="add_next_date" name="add_next_date" role="form" method="POST">
+          {% csrf_token %}
+           
+            <input type="hidden" id="case_id" name="case_id" value="">
+            <input type="hidden" id="business_on_date" value={{apt.id}} name="id" value=""><div class="modal-body">
+                <div class="alert alert-danger" style="display:none"></div>
+               
+                <div class="row" id="hide_nb">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="contct-info">
+                            <div class="form-group">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row" style="margin-bottom:15px;">
+                    <div class="col-md-4 form-group">
+                        <label for="newclint_name">New Client Name <span
+                                    class="text-danger">*</span></label>
+                        <input type="text" placeholder="" class="form-control" id="new_client"
+                               name="name" value={{apt.name}} autocomplete="off">
+                    </div>
+                    <div class="col-md-8 form-group">
+                        <label for="newclint_name">Address<span
+                                    class="text-danger">*</span></label>
+                        <input type="text" placeholder="" class="form-control" id="new_client"
+                               name="address" value={{apt.address}} autocomplete="off">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <label for="mobile">Mobile No <span class="text-danger">*</span></label>
+                        <input type="text" placeholder="" value={{apt.contact}} class="form-control" id="mobile" name="contact"
+                               autocomplete="off" maxlength="11">
+                    </div>
+
+                    <div class="col-md-3 form-group">
+                        <label for="date">Date <span class="text-danger">*</span></label>
+
+                        <input type="text" class="form-control" value={{apt.date}} id="date" name="date">
+
+
+                    </div>
+
+                    <div class="col-md-3 form-group">
+                        <label for="time">Time <span class="text-danger">*</span></label>
+
+                        <input type="text" value={{apt.time}} class="form-control" id="time" name="time">
+
+                    </div>
+                </div>
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal"><i
+                            class="ik ik-x"></i>Close</button>
+                <button type="submit" name="case_next_date_btn" class="btn btn-success">Save </button>
+        
+            </div>
+        </form>
+       
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        {% include 'footer.html' %}
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+
+  <!-- plugins:js -->
+  <script src="{% static 'vendors/js/vendor.bundle.base.js' %}"></script>
+  <script src="{% static 'vendors/js/vendor.bundle.addons.js' %}"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page-->
+  <!-- End plugin js for this page-->
+  <!-- inject:js -->
+  <script src="{% static 'js/off-canvas.js' %}"></script>
+  <script src="{% static 'js/hoverable-collapse.js' %}"></script>
+  <script src="{% static 'js/misc.js' %}"></script>
+  <script src="{% static 'js/settings.js' %}"></script>
+  <script src="{% static 'js/todolist.js' %}"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="{% static 'js/dashboard.js' %}"></script>
+  <!-- End custom js for this page-->
+
+ 
+</body>
+
+
+</html>

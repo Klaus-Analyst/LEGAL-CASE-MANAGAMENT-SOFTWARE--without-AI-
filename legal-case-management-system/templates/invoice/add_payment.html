@@ -1,0 +1,171 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    {% load static %}
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Law Office</title>
+  <!-- plugins:css -->
+  
+<!-- Optional theme -->
+  <link rel="stylesheet" href="{% static 'vendors/iconfonts/font-awesome/css/all.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.base.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.addons.css' %}">
+  <!-- endinject -->
+  <!-- plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="http://www.urbanui.com/" />
+</head>
+<body>
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+
+   {% include "header.html" %}
+
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_settings-panel.html -->
+     
+      <!-- partial -->
+      <!-- partial:partials/_sidebar.html -->
+      {% include 'asidebar.html' %}
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="page-header">
+            <h3 class="page-title">
+              Add Payment
+            </h3>
+          </div>
+           
+          <form method="post" class="" id="form_payment" name="form_payment">
+           {% csrf_token %}
+            <div class="modal-body">
+               
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="contct-info">
+                            <div class="form-group">
+                                <label class="discount_text">Invioce No
+                                    <er class="rest">*</er>
+                                </label>
+                                <input type="hidden" id="amount" value="{{payment.id}}" name="payment_id" class="form-control" value=""
+                                autocomplete="off">
+                                <input type="text" id="amount" value="{{payment.invioce_no}}" name="invioce_no" class="form-control" value=""
+                                       autocomplete="off">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="contct-info">
+                            <div class="form-group">
+                                <label class="discount_text">Amount
+                                    <er class="rest">*</er>
+                                </label>
+                                <input type="text" id="amount" name="amount" class="form-control" value=""
+                                       autocomplete="off">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+        
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="contct-info">
+                            <div class="form-group">
+                                <label class="discount_text">Payment Method
+                                    <er class="rest">*</er>
+                                </label>
+                                <select class="form-control select2" id="method" name="method">
+                                    <option value="">Select Payment Method</option>
+                                    <option value="Cash">Cash</option>
+                                    <option value="Cheque">Cheque</option>
+                                    <option value="Net Banking">Net Banking</option>
+                                    <option value="Other">Other</option>
+                                </select>
+        
+        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="contct-info">
+                            <div class="form-group">
+                                <label class="discount_text">Note</label>
+                                <textarea id="note" name="note" class="form-control"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+            </div>
+            <div class="modal-footer">
+                <a href="{% url 'invoice_payment_history' %}">
+                <button type="button" class="btn btn-danger" data-dismiss="modal"><i
+                        class="ik ik-x"></i>Close
+                </button>
+                <button type="submit" name="judge_type_btn" class="btn btn-success"><i
+                        class="" id=""></i>&nbsp;Save
+                </button>
+            </div>
+        </form>
+       
+       
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        {% include 'footer.html' %}
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+
+  <!-- plugins:js -->
+  <script src="{% static 'vendors/js/vendor.bundle.base.js' %}"></script>
+  <script src="{% static 'vendors/js/vendor.bundle.addons.js' %}"></script>
+  
+<script src="{% static 'assets/js/settings/cast-type-validation.js' %}"></script>
+
+
+  <!-- endinject -->
+  <!-- Plugin js for this page-->
+  <!-- End plugin js for this page-->
+  <!-- inject:js -->
+  <script src="{% static 'js/off-canvas.js' %}"></script>
+  <script src="{% static 'js/hoverable-collapse.js' %}"></script>
+  <script src="{% static 'js/misc.js' %}"></script>
+  <script src="{% static 'js/settings.js' %}"></script>
+  <script src="{% static 'js/todolist.js' %}"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="{% static 'js/dashboard.js' %}"></script>
+  <!-- End custom js for this page-->
+
+ 
+</body>
+
+
+</html>
+
+
+
+
+
+

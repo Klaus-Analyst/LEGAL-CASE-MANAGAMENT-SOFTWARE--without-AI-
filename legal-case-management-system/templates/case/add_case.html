@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    {% load static %}
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Law Office</title> 
+  <!-- plugins:css -->
+  
+<!-- Optional theme -->
+  <link rel="stylesheet" href="{% static 'vendors/iconfonts/font-awesome/css/all.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.base.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.addons.css' %}">
+  <!-- endinject -->
+  <!-- plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="http://www.urbanui.com/" />
+</head>
+<body>
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+
+   {% include "header.html" %}
+
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_settings-panel.html -->
+     
+      <!-- partial -->
+      <!-- partial:partials/_sidebar.html -->
+      {% include 'asidebar.html' %}
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="page-header">
+            <h3 class="page-title">
+              ADD CASE
+            </h3>
+          </div>
+         
+          <!--Form-->
+          
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <form id="add_client" name="add_client" role="form" method="POST" autocomplete="nope"
+                          action="">
+                        {% csrf_token %}
+                        <div class="x_content">
+                            <div class="row">
+                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">Client Name <span class="text-danger">*</span></label>
+                                    <select class="form-control select-change country-select2"
+                                            name="client_name" id="country">
+                                        <option value=""> Select Client</option>
+                                       {% for name in client_name %}
+                                       <option value="{{name.fname}} {{name.lname}}">{{name.fname}} {{name.lname}}</option>
+                                       {% endfor %}
+                                        
+        
+                                    </select>
+                                </div>
+        
+                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">Adovcate <span class="text-danger">*</span></label>
+                                    <select id="state" name="adovcate_name"  class="form-control state-select2 select-change">
+                                        <option value=""> Select Adovcate</option>
+                                
+                                       {% for name in team_member %}
+                                       <option value="{{name.fname}} {{name.lname}}">{{name.fname}} {{name.lname}}</option>
+                                       {% endfor %}
+        
+                                    </select>
+                                </div>
+        
+                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">Case Type <span class="text-danger">*</span></label>
+                                    <select id="city_id" name="case_type_name" class="form-control city-select2">
+                                        <option value=""> Select Case Type</option>
+                                        {% for name in case_type %}
+                                       <option value="{{name.type_name}}">{{name.type_name}}</option>
+                                       {% endfor %}
+        
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">Case No<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control"
+                                     id="email" name="case_no">
+                                </div>
+        
+                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">Respondent Name <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="respondent_name" name="respondent_name">
+                                </div>
+        
+                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">Case Status <span class="text-danger">*</span></label>
+                                    <select id="state" name="case_status_name" 
+                                            class="form-control state-select2 select-change">
+                                        <option value=""> Select Case Status</option>
+                                        {% for name in case_status %}
+                                       <option value="{{name.status_name}}">{{name.status_name}}</option>
+                                       {% endfor %}
+        
+        
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">Act <span class="text-danger">*</span></label>
+                                    <input type="text" placeholder="" class="form-control" id="" name="act">
+                                </div>
+        
+                                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">Next Date <span class="text-danger">*</span></label>
+                                    <input type="date" placeholder="" class="form-control" id="" name="next_date">
+                                </div>
+        
+                                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">Filing Number<span class="text-danger">*</span></label>
+                                    <input type="text" placeholder="" class="form-control" id="" name="filing_no",Required>
+                                </div>
+                                
+                                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">Filing Date <span class="text-danger">*</span></label>
+                                    <input type="date" placeholder="" class="form-control" id="" name="filing_date">
+                                </div>
+        
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">Registration No<span class="text-danger">*</span></label>
+                                    <input type="text" placeholder="" class="form-control" id="" name="reg_no">
+                                </div>
+        
+                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">Registration Date<span class="text-danger">*</span></label>
+                                    <input type="date" placeholder="" class="form-control" id="" name="reg_date">
+                                </div>
+                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">First Hiring Date<span class="text-danger">*</span></label>
+                                    <input type="date" placeholder="" class="form-control" id="" name="hiring_date">
+                                </div>
+        
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">CNR Number <span class="text-danger">*</span></label>
+                                    <input type="text"  class="form-control" name="cnr_no" Required>
+                                          
+                                </div>
+                                <div class="col-md-9 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">Description<span class="text-danger">*</span></label>
+                                    <input type="text" placeholder="" class="form-control" id="" name="description">
+                                </div>
+                            </div>
+                            <div class="page-header">
+                                <h3 class="page-title">
+                                  FIR DETAIL
+                                </h3>
+                            </div>
+        
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">Police Station <span class="text-danger">*</span></label>
+                                    <input type="text" placeholder="" class="form-control" id=""
+                                           name="police_station_name">
+                                </div>
+                               
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">FIR Number <span class="text-danger">*</span></label>
+                                    <input type="text" placeholder="" class="form-control" id=""
+                                           name="fir_no" Required >
+                                </div>
+                                <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">FIR Date<span class="text-danger">*</span></label>
+                                    <input type="date" placeholder="" class="form-control" id="alternate_no"name="fir_date">
+                                </div>
+                            </div>
+
+                            <div class="page-header">
+                                <h3 class="page-title">
+                                  COURT DETAIL
+                                </h3>
+                            </div>
+        
+                            <div class="row">
+                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">Court No<span class="text-danger">*</span></label>
+                                    <input type="text" placeholder="" Required class="form-control" id="alternate_no"name="court_no">
+                                </div>
+
+        
+                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">Court Name <span class="text-danger">*</span></label>
+                                    <select id="state" name="court_name"class="form-control">
+                                        <option value=""> Select Court</option>
+                                        {% for name in court_name %}
+                                        <option value="{{name.court_name}}">{{name.court_name}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+        
+                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">Court Type <span class="text-danger">*</span></label>
+                                    <select id="city_id" name="court_type_name"class="form-control">
+                                        <option value=""> Select Court Type</option>
+                                        {% for name in court_type %}
+                                        <option value="{{name.court_type_name}}">{{name.court_type_name}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">Judge Name</label>
+                                    <input type="text" placeholder="" class="form-control" id=""name="judge_name">
+                                </div>
+
+                                <div class="col-md-6 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">Judge Type <span class="text-danger">*</span></label>
+                                    <select id="city_id" name="judge_type_name"class="form-control">
+                                        <option value=""> Select Judge Type</option>
+                                        {% for name in judge_type %}
+                                        <option value="{{name.judge_name}}">{{name.judge_name}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+        
+                            </div>
+                            <div id="change_court_div" class="hidden">
+                            </div>
+                            <div class="form-group pull-right">
+                                <div class="col-md-12 col-sm-6 col-xs-12">
+                                    <a href="" class="btn btn-danger">Cancel</a>
+                                    <input type="hidden" name="route-exist-check"
+                                           id="route-exist-check"
+                                           value="">
+                                    <input type="hidden" name="token-value"
+                                           id="token-value"
+                                           value="">
+        
+                                    <button type="submit" class="btn btn-success"><i class="fa fa-save"
+                                                                                     id="show_loader"></i>&nbsp;Save
+                                    </button>
+                                </div>
+                            </div>
+        
+        
+                        </div>
+                    </form>
+                </div>
+        
+            </div>
+        </div>
+
+
+          <!--End Form-->
+         
+          
+          
+          
+         
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        {% include 'footer.html' %}
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+
+  <!-- plugins:js -->
+  <script src="{% static 'vendors/js/vendor.bundle.base.js' %}"></script>
+  <script src="{% static 'vendors/js/vendor.bundle.addons.js' %}"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page-->
+  <!-- End plugin js for this page-->
+  <!-- inject:js -->
+  <script src="{% static 'js/off-canvas.js' %}"></script>
+  <script src="{% static 'js/hoverable-collapse.js' %}"></script>
+  <script src="{% static 'js/misc.js' %}"></script>
+  <script src="{% static 'js/settings.js' %}"></script>
+  <script src="{% static 'js/todolist.js' %}"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="{% static 'js/dashboard.js' %}"></script>
+  <!-- End custom js for this page-->
+
+ 
+</body>
+
+
+</html>

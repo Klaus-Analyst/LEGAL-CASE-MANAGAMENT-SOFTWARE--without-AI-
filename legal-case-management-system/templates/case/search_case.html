@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    {% load static %}
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Law Office</title>
+  <!-- plugins:css -->
+  
+<!-- Optional theme -->
+  <link rel="stylesheet" href="{% static 'vendors/iconfonts/font-awesome/css/all.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.base.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/css/vendor.bundle.addons.css' %}">
+  <!-- endinject -->
+  <!-- plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="http://www.urbanui.com/" />
+</head>
+<body>
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+
+   {% include "header.html" %}
+
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_settings-panel.html -->
+     
+      <!-- partial -->
+      <!-- partial:partials/_sidebar.html -->
+      {% include 'asidebar.html' %}
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="page-header">
+            <h3 class="page-title">
+              Cases 
+            </h3>
+          </div>
+
+          <div class="title_right">
+            <div class="form-group pull-right top_search">
+                    <a href="{% url 'add_case' %}" class="btn btn-success">Add Cases</a>
+            </div>
+        </div>
+         
+          <div class="">
+            <div class="clearfix"></div>
+    
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+    
+                        <div class="x_content">
+                          <form action="{% url 'search_case' %}" method="get">
+                            <div class="row">
+
+                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+                                    <label for="fullname">Enter Case No <span class="text-danger"></span></label>
+                                    <input type="text" name="q" class="form-control filter1">
+                                </div>
+                               
+                                <div class="col-md-4 col-sm-12 col-xs-12 form-group">
+    
+                                    <br>
+                                    
+                                    <button type="submit" class="btn btn-success case-margin-top-3" ><i
+                                            class="fa fa-search"></i>&nbsp;Search
+                                    </button>
+                                </div>
+                          
+                            </div>
+                          </form>
+    
+                            <table id="tagDataTable" class="table" data-url="">
+                                <thead>
+                                
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Client & Case Detail</th>
+                                        <th>Court Detail</th>
+                                        <th>Petitioner vs Respondent</th>
+                                        <th>Next Date</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                
+                                </thead>
+                                <tbody>
+                                  {% for case in data %}
+                                    <tr>
+                                        <td>{{case.id}}</td>
+                                        <td>{{case.client_name}}<br>Case No: {{case.case_no}} {{case.description}}</td>
+                                        <td>{{case.court_no}} {{case_court_name}}</td>
+                                        <td>{{case.client_name}} VS {{case.respondent_name}}</td>
+                                        <td>{{case.next_date}}</td>
+                                        <td>{{case.case_status_name}}</td>
+                                        <td>
+                                            <ul class="nav navbar-right panel_toolbox">
+                                                <li class="dropdown">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                                       aria-expanded="true"><i class="fa fa-ellipsis-h"
+                                                                              ></i></a>
+                                                    <ul class="dropdown-menu" role="menu">
+                                                        
+                                                        <li><a href="{% url 'edit_case' case.id %}"><i class="fa fa-edit"></i>&nbsp;&nbsp;Edit</a>
+                                                        </li>
+                                                        <li><a href="{% url 'delete_case' case.id %}"><i class="fa fa-delete"></i>&nbsp;&nbsp;Delete</a>
+                                                        </li>
+                                                        
+                                                    </ul>
+                                                </li>
+        
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                  {% endfor %}
+                                   </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+       
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        {% include 'footer.html' %}
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+
+  <!-- plugins:js -->
+  <script src="{% static 'vendors/js/vendor.bundle.base.js' %}"></script>
+  <script src="{% static 'vendors/js/vendor.bundle.addons.js' %}"></script>
+  
+<script src="{% static 'assets/js/settings/cast-type-validation.js' %}"></script>
+
+
+  <!-- endinject -->
+  <!-- Plugin js for this page-->
+  <!-- End plugin js for this page-->
+  <!-- inject:js -->
+  <script src="{% static 'js/off-canvas.js' %}"></script>
+  <script src="{% static 'js/hoverable-collapse.js' %}"></script>
+  <script src="{% static 'js/misc.js' %}"></script>
+  <script src="{% static 'js/settings.js' %}"></script>
+  <script src="{% static 'js/todolist.js' %}"></script>
+  
+
+  <script src="{% static 'assets/js/settings/case-type-datatable.js' %}"></script>
+
+
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="{% static 'js/dashboard.js' %}"></script>
+  <!-- End custom js for this page-->
+
+ 
+</body>
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
